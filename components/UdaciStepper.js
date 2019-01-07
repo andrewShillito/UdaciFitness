@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { View, Text } from "react-native";
 
-export default function Stepper() {
+export default function UdaciStepper() {
   return (
     <View>
       <Text>Stepper</Text>
