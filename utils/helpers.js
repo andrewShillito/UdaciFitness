@@ -66,7 +66,7 @@ export function getMetricMetaInfo(metric) {
       }
     },
     bike: {
-      displayName: Bike",
+      displayName: "Bike",
       max: 100,
       unit: 'miles',
       step: 1,
