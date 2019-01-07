@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { View, Text } from "react-native";
 import { getMetricMetaInfo } from "../utils/helpers";
+import Slider from "./Slider";
+import Stepper from "./Stepper";
 
 export default class AddEntry extends Component {
   state = {
@@ -36,9 +38,32 @@ export default class AddEntry extends Component {
     }))
   }
   render() {
+    const metaInfo = getMetricMetaInfo();
     return (
       <View>
-        {getMetricMetaInfo("bike").getIcon()}
+        {Object.keys(metaInfo).map((key) => {
+          const { type, getIcon, ...rest } = metaInfo[key];
+          const value = this.state[key];
+
+          return (
+            <View key={key}>
+              {getIcon()}
+              {type === "slider"
+                ? <Slider
+                    value={value}
+                    onChange={(value) => this.slide(key, value)}
+                    {...rest}
+                  />
+                : <Stepper
+                    value={value}
+                    onIcrement={() => this.increment(key)}
+                    onDecrement={() => this.decrement(key)}
+                    {...rest}
+                  />
+                }
+            </View>
+          )
+        })}
       </View>
     )
   }
