@@ -6,5 +6,5 @@ export default function Stepper() {
     <View>
       <Text>Stepper</Text>
     </View>
-  )
+  );
 }

@@ -6,5 +6,5 @@ export default function Slider() {
     <View>
       <Text>Slider</Text>
     </View>
-  )
+  );
 }
