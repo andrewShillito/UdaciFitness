@@ -4,7 +4,7 @@ import { purple } from "../utils/colors"
 
 export default function TextBtn({ children, onPress, style = {} }) {
   return (
-    <TouchableOpacity>
+    <TouchableOpacity onPress={onPress}>
       <Text style={[styles.reset, style]}>{children}</Text>
     </TouchableOpacity>
   )

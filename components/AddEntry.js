@@ -55,13 +55,11 @@ class AddEntry extends Component {
     }))
   }
   submit = () => {
-
-    // Nav to home
-    // Clear local notifcation
-
     const key = timeToString();
     const entry = this.state;
-
+    this.props.dispatch(addEntry({
+      [key]: entry,
+    }));
     this.setState(() => ({
       run: 0,
       bike: 0,
@@ -69,22 +67,16 @@ class AddEntry extends Component {
       sleep: 0,
       eat: 0,
     }));
-    // Update Redux
-    this.props.dispatch(addEntry({
-      [key]: entry,
-    }));
-    // Save to Database
     submitEntry({ entry, key});
   }
   reset = () => {
-    //Route to Home
-    //Update Database
-    const key = timeToString();
-    //Update Redux
+    const key = timeToString()
     this.props.dispatch(addEntry({
-      [key]: getDailyReminderValue(),
+      [key]: getDailyReminderValue()
     }))
-    removeEntry(key);
+    // Route to Home
+
+    removeEntry(key)
   }
   render() {
     const metaInfo = getMetricMetaInfo();
