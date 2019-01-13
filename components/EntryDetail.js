@@ -66,7 +66,7 @@ function mapDispatchToProps(dispatch, { navigation }) {
 
   return {
     remove: () => dispatch(addEntry({
-      [entryId]: timeToString === entryId ? getDailyReminderValue() : null,
+      [entryId]: timeToString() === entryId ? getDailyReminderValue() : null,
     })),
     goBack: () => navigation.goBack()
   };
